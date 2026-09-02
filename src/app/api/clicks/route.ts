@@ -1,4 +1,5 @@
 import clientPromise from "@/lib/mongodb";
+import { isAdmin } from "@/lib/auth";
 
 interface LinkClickDoc {
   _id: string;
@@ -6,6 +7,10 @@ interface LinkClickDoc {
 }
 
 export async function GET() {
+  if (!(await isAdmin())) {
+    return Response.json({ error: "권한이 없습니다." }, { status: 401 });
+  }
+
   const client = await clientPromise;
   const docs = await client
     .db()

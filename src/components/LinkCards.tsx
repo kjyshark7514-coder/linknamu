@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 export type LinkItem = {
   id: string;
   label: string;
@@ -10,17 +8,7 @@ export type LinkItem = {
 };
 
 export default function LinkCards({ links }: { links: LinkItem[] }) {
-  const [clickCounts, setClickCounts] = useState<Record<string, number>>({});
-
-  useEffect(() => {
-    fetch("/api/clicks")
-      .then((res) => res.json())
-      .then((counts: Record<string, number>) => setClickCounts(counts))
-      .catch(() => {});
-  }, []);
-
   const handleClick = (id: string) => {
-    setClickCounts((prev) => ({ ...prev, [id]: (prev[id] ?? 0) + 1 }));
     fetch(`/api/clicks/${id}`, { method: "POST" }).catch(() => {});
   };
 
@@ -38,9 +26,6 @@ export default function LinkCards({ links }: { links: LinkItem[] }) {
         >
           <span className="shrink-0 text-lg">{emoji}</span>
           <span className="flex-1">{label}</span>
-          <span className="shrink-0 text-xs font-normal text-emerald-950/50 dark:text-emerald-100/50">
-            {clickCounts[id] ?? 0}회
-          </span>
         </a>
       ))}
     </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import LinkCards from "@/components/LinkCards";
+import { links } from "@/lib/links";
 
 // TODO: 더미 데이터 — 나중에 실제 프로필/링크 데이터로 교체
 const profile = {
@@ -7,13 +8,6 @@ const profile = {
   bio: "풀스택 개발자 ¦ 요즘에는 AI 개발에 관심이 많아요",
   avatarSrc: "/증사.png",
 };
-
-const links = [
-  { id: "github", label: "GitHub", href: "https://github.com/sharkim-eng", emoji: "🐙" },
-  { id: "blog", label: "Blog", href: "https://blog.naver.com/cherish056", emoji: "🦈" },
-  { id: "email", label: "Email", href: "mailto:cherish056@naver.com", emoji: "🏤" },
-  { id: "music", label: "Music", href: "https://www.youtube.com/watch?v=OTM80rqhx_8", emoji: "🎧" },
-];
 
 export default function Home() {
   return (
