@@ -6,7 +6,7 @@ import { links } from "@/lib/links";
 const profile = {
   name: "김상어",
   bio: "풀스택 개발자 ¦ 요즘에는 AI 개발에 관심이 많아요",
-  avatarSrc: "/증사.png",
+  avatarSrc: "/증명상어.png",
 };
 
 export default function Home() {
