@@ -1,4 +1,5 @@
 import Image from "next/image";
+import LinkCards from "@/components/LinkCards";
 
 // TODO: 더미 데이터 — 나중에 실제 프로필/링크 데이터로 교체
 const profile = {
@@ -8,10 +9,10 @@ const profile = {
 };
 
 const links = [
-  { label: "GitHub", href: "https://github.com/sharkim-eng", emoji: "🐙" },
-  { label: "Blog", href: "https://blog.naver.com/cherish056", emoji: "🦈" },
-  { label: "Email", href: "mailto:cherish056@naver.com", emoji: "🏤" },
-  { label: "Music", href: "https://www.youtube.com/watch?v=OTM80rqhx_8", emoji: "🎧" },
+  { id: "github", label: "GitHub", href: "https://github.com/sharkim-eng", emoji: "🐙" },
+  { id: "blog", label: "Blog", href: "https://blog.naver.com/cherish056", emoji: "🦈" },
+  { id: "email", label: "Email", href: "mailto:cherish056@naver.com", emoji: "🏤" },
+  { id: "music", label: "Music", href: "https://www.youtube.com/watch?v=OTM80rqhx_8", emoji: "🎧" },
 ];
 
 export default function Home() {
@@ -38,21 +39,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex w-full flex-col gap-4">
-          {links.map(({ label, href, emoji }) => (
-            <a
-              key={label}
-              href={href}
-              {...(href.startsWith("mailto:")
-                ? {}
-                : { target: "_blank", rel: "noopener noreferrer" })}
-              className="flex items-center gap-3 rounded-2xl border border-white/40 bg-white/40 px-5 py-4 text-sm font-medium text-emerald-950 shadow-sm backdrop-blur-md transition-colors duration-200 hover:bg-white/55 dark:border-white/10 dark:bg-white/5 dark:text-emerald-50 dark:hover:bg-white/10"
-            >
-              <span className="shrink-0 text-lg">{emoji}</span>
-              {label}
-            </a>
-          ))}
-        </div>
+        <LinkCards links={links} />
       </div>
     </div>
   );
