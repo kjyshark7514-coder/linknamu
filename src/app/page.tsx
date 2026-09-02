@@ -11,7 +11,7 @@ const links = [
   { label: "GitHub", href: "https://github.com/sharkim-eng", emoji: "🐙" },
   { label: "Blog", href: "https://blog.naver.com/cherish056", emoji: "🦈" },
   { label: "Email", href: "mailto:cherish056@naver.com", emoji: "🏤" },
-  { label: "노 래", href: "https://www.youtube.com/watch?v=OTM80rqhx_8", emoji: "🎧" },
+  { label: "Music", href: "https://www.youtube.com/watch?v=OTM80rqhx_8", emoji: "🎧" },
 ];
 
 export default function Home() {
